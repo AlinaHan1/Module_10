@@ -19,5 +19,10 @@ end = datetime.datetime.now()
 print(end - start)
 
 if __name__ == '__main__':
-    pass
+    start = datetime.datetime.now()
+    with multiprocessing.Pool(processes=4) as pool:
+        pool.map(read_info, file_name)
+        end = datetime.datetime.now()
+        print(end - start)
+
 
